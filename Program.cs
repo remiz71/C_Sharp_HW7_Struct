@@ -98,7 +98,7 @@ namespace C_Sharp_HW7_Struct
         }
         public static void Main(string[] args)
         {
-            
+            Task_Complex(); 
 
 
 
