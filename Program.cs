@@ -32,6 +32,13 @@ namespace C_Sharp_HW7_Struct
                 result.i = (a.r * b.i) + (b.r * a.i);
                 return result;
             }
+            public Complex Division(Complex a,Complex b)
+            {
+                Complex result = new Complex();
+                result.r = (a.r * b.r + a.i + b.i) / (b.r * b.r + b.i * b.i);
+                result.i = (b.r*a.i-a.r*b.i)/ (b.r * b.r + b.i * b.i);
+                return result;
+            }
             public void Print()
             {
                 if (i < 0) Console.WriteLine($"z = {r}{i}i");
@@ -124,8 +131,7 @@ namespace C_Sharp_HW7_Struct
             c2.i = i2;
             c1.Print();
             c2.Print();
-            do
-            {
+            
                 Console.WriteLine("Какое действие надо комплексными числами вы хотите совершить?");
                 char act = Convert.ToChar(Console.ReadLine());
                 switch (act)
@@ -142,9 +148,13 @@ namespace C_Sharp_HW7_Struct
                         res = res.Multiplication(c1, c2);
                         res.Print();
                         break;
+                    case '/':
+                        res = res.Division(c1, c2);
+                        res.Print();
+                        break;
                     default: break;
                 }
-            } while (Console.ReadKey().KeyChar == ' ');
+           
         }
         public static void Task_Car()
         {
